@@ -6,6 +6,7 @@ public class MovementPlayer1 : MonoBehaviour
 {
     private float movementSpeed = 0.05f;
     private float nextDamgeEvent = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,15 +36,15 @@ public class MovementPlayer1 : MonoBehaviour
     {
         
         GameObject enemy = FindClosestEnemy();
-        if(Vector2.Distance(enemy.transform.position,transform.position) >1){
+        CharacterAttributes myAttributes = this.GetComponent<CharacterAttributes>();
+        if(Vector2.Distance(enemy.transform.position,transform.position) > myAttributes.attackDist){
         transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, movementSpeed);
         print(enemy.transform.position);
         } else{
             if(Time.time > nextDamgeEvent){
-                CharacterAttribute enemyHealth = enemy.GetComponent<CharacterAttribute>();
-                CharacterAttribute myAttack = this.GetComponent<CharacterAttribute>();
-                enemyHealth.Health -= myAttack.attackDam;
-                nextDamgeEvent = Time.time + myAttack.attackDelay;
+                CharacterAttributes enemyHealth = enemy.GetComponent<CharacterAttributes>();
+                enemyHealth.Health -= myAttributes.attackDam;
+                nextDamgeEvent = Time.time + myAttributes.attackDelay;
                 if(enemyHealth.Health < 0){
                     Destroy(enemy);
                 }
