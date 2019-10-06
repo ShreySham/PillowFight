@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class energydisplay : MonoBehaviour
+public class player2featherdisplay : MonoBehaviour
 {
-    private int ener = 100;
-    public Text energyText;
+    private int feath2 = 25;
+    public Text featherText2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +16,10 @@ public class energydisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        energyText.text = "ENERGY: " + ener;
+        featherText2.text = "FEATHERS: " + feath2;
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            ener--;
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            feath2--;
         }
-
     }
 }

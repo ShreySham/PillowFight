@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class energydisplay : MonoBehaviour
+public class play2energy : MonoBehaviour
 {
-    private int ener = 100;
-    public Text energyText;
+    private int ener2 = 100;
+    public Text energyText2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +16,10 @@ public class energydisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        energyText.text = "ENERGY: " + ener;
+        energyText2.text = "ENERGY: " + ener2;
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            ener--;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ener2--;
         }
-
     }
 }
